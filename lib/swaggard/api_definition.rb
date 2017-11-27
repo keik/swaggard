@@ -46,7 +46,9 @@ module Swaggard
         'tags'        => @tags.map { |_, tag| tag.to_doc },
         'schemes'     => Swaggard.configuration.schemes,
         'paths'       => Hash[@paths.values.map { |path| [path.path, path.to_doc] }],
-        'definitions' => Hash[@definitions.map { |definition| [definition.id, definition.to_doc] }]
+        'definitions' => Hash[@definitions.map { |definition| [definition.id, definition.to_doc] }],
+        'securityDefinitions' => Swaggard.configuration.security_definitions,
+        'security'            => Swaggard.configuration.security
       }
     end
 
